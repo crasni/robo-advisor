@@ -1,0 +1,7 @@
+{
+  "ticker": "MSTR",
+  "companyName": "Strategy",
+  "sharesOutstanding": 246000000,
+  "sharesOutstandingAsOf": "2025-12-31",
+  "notes": "Use a fixed diluted share count for v1. Replace with a historical share-count series in phase 2 if needed."
+}

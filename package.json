@@ -1,0 +1,28 @@
+{
+  "name": "robo-adviser",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "data:build": "node scripts/build-dataset.mjs"
+  },
+  "dependencies": {
+    "next": "^15.5.14",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "recharts": "2.15.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@types/node": "22.13.14",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.2",
+    "typescript": "5.8.2"
+  }
+}
