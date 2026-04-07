@@ -5,3 +5,5 @@ node_modules
 tsconfig.tsbuildinfo
 .codex
 .codex-local/
+docs/roadmap.md
+scripts/fetch-mstr.py
