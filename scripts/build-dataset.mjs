@@ -131,19 +131,20 @@ function buildSeries({ stockRows, btcSeries, profile, holdingsTimeline }) {
         return null;
       }
 
-      const stockPrice = row.close;
+      const stockPrice = Number(row.close.toFixed(2));
+      const normalizedBtcPrice = Number(btcPrice.toFixed(2));
       const marketCap = stockPrice * profile.sharesOutstanding;
-      const btcNav = btcPrice * btcHoldings;
+      const btcNav = normalizedBtcPrice * btcHoldings;
       const mnav = marketCap / btcNav;
 
       return {
         date,
         ticker: profile.ticker,
         companyName: profile.companyName,
-        stockPrice: Number(stockPrice.toFixed(2)),
+        stockPrice,
         sharesOutstanding: profile.sharesOutstanding,
         marketCap: Number(marketCap.toFixed(2)),
-        btcPrice: Number(btcPrice.toFixed(2)),
+        btcPrice: normalizedBtcPrice,
         btcHoldings,
         btcNav: Number(btcNav.toFixed(2)),
         mnav: Number(mnav.toFixed(6)),

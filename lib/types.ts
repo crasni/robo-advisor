@@ -16,3 +16,12 @@ export type RangeOption = {
   value: "1M" | "3M" | "6M" | "1Y" | "All";
   days: number | null;
 };
+
+export type TreasuryEvent = {
+  date: string;
+  btcHoldings: number;
+  label: string;
+  source: string;
+};
+
+export type IndicatorKey = "mnav" | "btcPrice" | "stockPrice" | "btcNav" | "btcHoldings";
