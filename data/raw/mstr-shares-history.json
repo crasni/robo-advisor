@@ -1,6 +1,6 @@
 [
   {
-    "date": "2020-02-02",
+    "date": "2020-02-03",
     "sharesOutstanding": 10105013,
     "classAShares": 8069829,
     "classBShares": 2035184,
@@ -10,7 +10,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459020004679/mstr-10k_20191231.htm"
   },
   {
-    "date": "2020-04-19",
+    "date": "2020-04-20",
     "sharesOutstanding": 9764101,
     "classAShares": 7728917,
     "classBShares": 2035184,
@@ -20,7 +20,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459020019245/mstr-10q_20200331.htm"
   },
   {
-    "date": "2020-07-19",
+    "date": "2020-07-20",
     "sharesOutstanding": 9686177,
     "classAShares": 7650993,
     "classBShares": 2035184,
@@ -30,7 +30,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459020033897/mstr-10q_20200630.htm"
   },
   {
-    "date": "2020-10-18",
+    "date": "2020-10-19",
     "sharesOutstanding": 9266989,
     "classAShares": 7252964,
     "classBShares": 2014025,
@@ -40,7 +40,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459020047995/mstr-10q_20200930.htm"
   },
   {
-    "date": "2021-02-01",
+    "date": "2021-02-02",
     "sharesOutstanding": 9587022,
     "classAShares": 7622997,
     "classBShares": 1964025,
@@ -50,7 +50,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459021005783/mstr-10k_20201231.htm"
   },
   {
-    "date": "2021-04-21",
+    "date": "2021-04-22",
     "sharesOutstanding": 9745593,
     "classAShares": 7781568,
     "classBShares": 1964025,
@@ -60,7 +60,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459021021949/mstr-10q_20210331.htm"
   },
   {
-    "date": "2021-07-21",
+    "date": "2021-07-22",
     "sharesOutstanding": 9747468,
     "classAShares": 7783443,
     "classBShares": 1964025,
@@ -70,7 +70,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459021039125/mstr-10q_20210630.htm"
   },
   {
-    "date": "2021-10-20",
+    "date": "2021-10-21",
     "sharesOutstanding": 10357609,
     "classAShares": 8393584,
     "classBShares": 1964025,
@@ -80,7 +80,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459021052646/mstr-10q_20210930.htm"
   },
   {
-    "date": "2022-01-31",
+    "date": "2022-02-01",
     "sharesOutstanding": 11285419,
     "classAShares": 9321394,
     "classBShares": 1964025,
@@ -90,7 +90,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459022005287/mstr-10k_20211231.htm"
   },
   {
-    "date": "2022-04-25",
+    "date": "2022-04-26",
     "sharesOutstanding": 11297548,
     "classAShares": 9333523,
     "classBShares": 1964025,
@@ -100,7 +100,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459022017437/mstr-10q_20220331.htm"
   },
   {
-    "date": "2022-07-25",
+    "date": "2022-07-26",
     "sharesOutstanding": 11300906,
     "classAShares": 9336881,
     "classBShares": 1964025,
@@ -110,7 +110,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459022027479/mstr-10q_20220630.htm"
   },
   {
-    "date": "2022-10-24",
+    "date": "2022-10-25",
     "sharesOutstanding": 11317719,
     "classAShares": 9353694,
     "classBShares": 1964025,
@@ -120,7 +120,7 @@
     "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459022036073/mstr-10q_20220930.htm"
   },
   {
-    "date": "2023-02-01",
+    "date": "2023-02-02",
     "sharesOutstanding": 11548757,
     "classAShares": 9584732,
     "classBShares": 1964025,
