@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "DAT.co mNAV Monitor",
   description: "Daily mNAV tracking for Strategy's Bitcoin treasury valuation.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
