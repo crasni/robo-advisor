@@ -24,4 +24,4 @@ export type TreasuryEvent = {
   source: string;
 };
 
-export type IndicatorKey = "mnav" | "btcPrice" | "stockPrice" | "btcNav" | "btcHoldings";
+export type IndicatorKey = "mnav" | "btcPrice" | "stockPrice" | "btcHoldings";

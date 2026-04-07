@@ -3,15 +3,14 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import type { MnavRecord } from "@/lib/types";
-import { formatCompactNumber, formatCurrency, formatCurrencyCompact, formatDate } from "@/lib/format";
+import { formatCompactNumber, formatCurrency, formatDate } from "@/lib/format";
 
 type LandingExperienceProps = {
   latest: MnavRecord | null;
   firstDate: string | null;
-  eventCount: number;
 };
 
-export function LandingExperience({ latest, firstDate, eventCount }: LandingExperienceProps) {
+export function LandingExperience({ latest, firstDate }: LandingExperienceProps) {
   const shellRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
@@ -68,24 +67,27 @@ export function LandingExperience({ latest, firstDate, eventCount }: LandingExpe
         <header className="landing-nav">
           <div>
             <p className="landing-brand">DAT.co</p>
-            <p className="landing-brand-subtitle">Strategy premium monitor</p>
           </div>
           <Link className="nav-link" href="/dashboard">
-            Open dashboard
+            View Chart
           </Link>
         </header>
 
         <div className="landing-simple-grid">
           <section className="landing-copy-block">
-            <p className="eyebrow">DAT.co mNAV Monitor</p>
-            <h1>Track Strategy&apos;s Bitcoin premium in one clean view.</h1>
+            <h1>
+              Track
+              <br />
+              Strategy&apos;s
+              <br />
+              mNAV.
+            </h1>
             <p className="landing-lede">
-              A focused monitor for mNAV, BTC, MSTR, treasury NAV, and holdings changes. Built for fast scanning, not
-              long explanation.
+              A focused monitor for mNAV, with BTC, MSTR, and holdings shown as supporting context.
             </p>
             <div className="landing-actions-rebuilt">
               <Link className="primary-link" href="/dashboard">
-                Launch workspace
+                View Chart 
               </Link>
               <a className="secondary-link" href="#landing-summary">
                 Methodology
@@ -119,7 +121,6 @@ export function LandingExperience({ latest, firstDate, eventCount }: LandingExpe
       <section className="landing-summary" id="landing-summary">
         <section className="landing-slab">
           <div className="slab-copy">
-            <p className="section-label">Method</p>
             <h2>Fast to read. Simple to audit.</h2>
             <p>
               The app combines BTC daily closes, MSTR daily closes, and a manually curated Strategy holdings timeline.
@@ -134,15 +135,11 @@ export function LandingExperience({ latest, firstDate, eventCount }: LandingExpe
             </div>
             <div>
               <dt>Latest update</dt>
-              <dd>{latest ? formatDate(latest.date) : "N/A"}</dd>
-            </div>
-            <div>
-              <dt>BTC NAV</dt>
-              <dd>{latest ? formatCurrencyCompact(latest.btcNav) : "N/A"}</dd>
+              <dd>{latest ? `Trading close ${formatDate(latest.date)}` : "N/A"}</dd>
             </div>
             <div>
               <dt>Market cap</dt>
-              <dd>{latest ? formatCurrencyCompact(latest.marketCap) : "N/A"}</dd>
+              <dd>{latest ? formatCurrency(latest.marketCap) : "N/A"}</dd>
             </div>
           </dl>
         </section>

@@ -17014,5 +17014,17 @@
     "btcHoldings": 580250,
     "btcNav": 38819879697.5,
     "mnav": 0.759358
+  },
+  {
+    "date": "2026-04-06",
+    "ticker": "MSTR",
+    "companyName": "Strategy",
+    "stockPrice": 127.69,
+    "sharesOutstanding": 246000000,
+    "marketCap": 31411740000,
+    "btcPrice": 68853.66,
+    "btcHoldings": 580250,
+    "btcNav": 39952336215,
+    "mnav": 0.78623
   }
 ]

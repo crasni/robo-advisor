@@ -119,6 +119,60 @@ function latestHoldingsForDate(holdingsTimeline, date) {
   return current?.btcHoldings ?? null;
 }
 
+function getMissingDates(start, end) {
+  const startTime = new Date(`${start}T00:00:00Z`).getTime();
+  const endTime = new Date(`${end}T00:00:00Z`).getTime();
+  const dates = [];
+
+  for (let cursor = startTime + ONE_DAY_MS; cursor < endTime; cursor += ONE_DAY_MS) {
+    dates.push(new Date(cursor).toISOString().slice(0, 10));
+  }
+
+  return dates;
+}
+
+function describeGap(missingDates) {
+  const weekendDates = missingDates.filter((date) => {
+    const day = new Date(`${date}T00:00:00Z`).getUTCDay();
+    return day === 0 || day === 6;
+  });
+  const weekdayDates = missingDates.filter((date) => !weekendDates.includes(date));
+
+  if (weekdayDates.length === 0) {
+    return { kind: "weekend", note: `Weekend gap: ${missingDates.join(", ")}` };
+  }
+
+  if (weekdayDates.length === 1) {
+    return {
+      kind: "market-closure",
+      note: `Market closure on ${weekdayDates[0]}${weekendDates.length ? `; weekend ${weekendDates.join(", ")}` : ""}`,
+    };
+  }
+
+  return { kind: "unexpected", note: `Unexpected multi-session gap: ${missingDates.join(", ")}` };
+}
+
+function analyzeOutputCoverage(series) {
+  const gaps = [];
+
+  for (let index = 1; index < series.length; index += 1) {
+    const previous = series[index - 1];
+    const current = series[index];
+    const missingDates = getMissingDates(previous.date, current.date);
+
+    if (missingDates.length === 0) continue;
+
+    gaps.push({
+      from: previous.date,
+      to: current.date,
+      missingDates,
+      ...describeGap(missingDates),
+    });
+  }
+
+  return gaps;
+}
+
 function buildSeries({ stockRows, btcSeries, profile, holdingsTimeline }) {
   return stockRows
     .filter((row) => row.date && row.close)
@@ -162,11 +216,20 @@ async function main() {
   ]);
 
   const output = buildSeries({ stockRows, btcSeries, profile, holdingsTimeline });
+  const coverageGaps = analyzeOutputCoverage(output);
+  const unexpectedGaps = coverageGaps.filter((gap) => gap.kind === "unexpected");
 
   await mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
   await writeFile(OUTPUT_PATH, `${JSON.stringify(output, null, 2)}\n`, "utf8");
 
   console.log(`Wrote ${output.length} records to ${path.relative(ROOT, OUTPUT_PATH)}`);
+  if (coverageGaps.length > 0) {
+    console.log(`Detected ${coverageGaps.length} non-trading calendar gap(s) in the stock-session series.`);
+    console.log(`Latest gap: ${coverageGaps.at(-1)?.note}`);
+  }
+  if (unexpectedGaps.length > 0) {
+    console.warn(`Unexpected trading-session gaps found:\n${unexpectedGaps.map((gap) => `- ${gap.note}`).join("\n")}`);
+  }
 }
 
 main().catch((error) => {

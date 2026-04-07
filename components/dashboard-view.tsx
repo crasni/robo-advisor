@@ -1,6 +1,6 @@
 "use client";
-
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { useMemo, useState } from "react";
 import {
   CartesianGrid,
@@ -16,7 +16,6 @@ import type { IndicatorKey, MnavRecord, RangeOption, TreasuryEvent } from "@/lib
 import {
   formatCompactNumber,
   formatCurrency,
-  formatCurrencyCompact,
   formatDate,
   formatLargeNumber,
   formatPercent,
@@ -31,7 +30,8 @@ type DashboardViewProps = {
 type IndicatorDefinition = {
   key: IndicatorKey;
   label: string;
-  color: string;
+  colorVar: string;
+  toneVar: string;
   accessor: (row: MnavRecord) => number;
   format: (value: number) => string;
 };
@@ -43,17 +43,42 @@ type ChartPoint = MnavRecord & {
 const DEFAULT_INDICATORS: IndicatorKey[] = ["mnav", "btcPrice", "stockPrice"];
 
 const indicators: IndicatorDefinition[] = [
-  { key: "mnav", label: "mNAV", color: "#ff9a3c", accessor: (row) => row.mnav, format: (value) => `${value.toFixed(2)}x` },
-  { key: "btcPrice", label: "BTC", color: "#f6c253", accessor: (row) => row.btcPrice, format: formatCurrency },
-  { key: "stockPrice", label: "MSTR", color: "#6ad0ff", accessor: (row) => row.stockPrice, format: formatCurrency },
-  { key: "btcNav", label: "BTC NAV", color: "#7ef0c1", accessor: (row) => row.btcNav, format: formatCurrency },
-  { key: "btcHoldings", label: "BTC Held", color: "#c7b6ff", accessor: (row) => row.btcHoldings, format: formatLargeNumber },
+  {
+    key: "mnav",
+    label: "mNAV",
+    colorVar: "var(--series-mnav)",
+    toneVar: "var(--series-mnav-soft)",
+    accessor: (row) => row.mnav,
+    format: (value) => `${value.toFixed(2)}x`,
+  },
+  {
+    key: "btcPrice",
+    label: "BTC",
+    colorVar: "var(--series-btc)",
+    toneVar: "var(--series-btc-soft)",
+    accessor: (row) => row.btcPrice,
+    format: formatCurrency,
+  },
+  {
+    key: "stockPrice",
+    label: "MSTR",
+    colorVar: "var(--series-mstr)",
+    toneVar: "var(--series-mstr-soft)",
+    accessor: (row) => row.stockPrice,
+    format: formatCurrency,
+  },
+  {
+    key: "btcHoldings",
+    label: "BTC Held",
+    colorVar: "var(--series-holdings)",
+    toneVar: "var(--series-holdings-soft)",
+    accessor: (row) => row.btcHoldings,
+    format: formatLargeNumber,
+  },
 ];
 
 function getFilteredSeries(data: MnavRecord[], selected: RangeOption | undefined) {
-  if (!selected || selected.days === null) {
-    return data;
-  }
+  if (!selected || selected.days === null) return data;
   return data.slice(Math.max(data.length - selected.days, 0));
 }
 
@@ -67,7 +92,6 @@ function buildChartSeries(data: MnavRecord[]) {
       mnav: (row.mnav / base.mnav) * 100,
       btcPrice: (row.btcPrice / base.btcPrice) * 100,
       stockPrice: (row.stockPrice / base.stockPrice) * 100,
-      btcNav: (row.btcNav / base.btcNav) * 100,
       btcHoldings: (row.btcHoldings / base.btcHoldings) * 100,
     },
   }));
@@ -84,14 +108,10 @@ function IndicatorTooltip({
   label?: string;
   selectedIndicators: IndicatorKey[];
 }) {
-  if (!active || !payload?.length || !label) {
-    return null;
-  }
+  if (!active || !payload?.length || !label) return null;
 
   const row = payload[0]?.payload;
-  if (!row) {
-    return null;
-  }
+  if (!row) return null;
 
   return (
     <div className="tooltip-panel">
@@ -100,15 +120,20 @@ function IndicatorTooltip({
         {indicators
           .filter((indicator) => selectedIndicators.includes(indicator.key))
           .map((indicator) => (
-            <div key={indicator.key}>
+            <div
+              key={indicator.key}
+              className="tooltip-series-row"
+              style={
+                {
+                  "--tooltip-accent": indicator.colorVar,
+                  "--tooltip-accent-soft": indicator.toneVar,
+                } as CSSProperties
+              }
+            >
               <dt>{indicator.label}</dt>
               <dd>{indicator.format(indicator.accessor(row))}</dd>
             </div>
           ))}
-        <div>
-          <dt>Market Cap</dt>
-          <dd>{formatCurrencyCompact(row.marketCap)}</dd>
-        </div>
       </dl>
     </div>
   );
@@ -117,6 +142,9 @@ function IndicatorTooltip({
 export function DashboardView({ data, ranges, events }: DashboardViewProps) {
   const [activeRange, setActiveRange] = useState<RangeOption["value"]>("1Y");
   const [selectedIndicators, setSelectedIndicators] = useState<IndicatorKey[]>(DEFAULT_INDICATORS);
+  const [isIndicatorMenuOpen, setIsIndicatorMenuOpen] = useState(false);
+  const [showEventMarkers, setShowEventMarkers] = useState(true);
+  const [showTooltipDetails, setShowTooltipDetails] = useState(true);
 
   const filtered = useMemo(() => {
     const selected = ranges.find((range) => range.value === activeRange);
@@ -126,8 +154,6 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
   const chartData = useMemo(() => buildChartSeries(filtered), [filtered]);
   const latest = filtered.at(-1) ?? null;
   const first = filtered[0] ?? null;
-  const latestEvent = events.at(-1) ?? null;
-  const recentEvents = useMemo(() => [...events].slice(-4).reverse(), [events]);
   const visibleEvents = useMemo(
     () =>
       events
@@ -151,53 +177,43 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
 
   return (
     <main className="dashboard-shell dashboard-shell-terminal">
-      <header className="dashboard-topbar dashboard-topbar-terminal">
-        <div>
-          <p className="eyebrow">DAT.co mNAV Monitor</p>
-          <h1>Strategy workspace</h1>
-          <p className="dashboard-intro">
-            Chart-first monitor for premium expansion, treasury value, and disclosed balance-sheet moves.
-          </p>
+      <header className="dashboard-header-bar">
+        <div className="dashboard-header-main">
+          <h1>Strategy mNAV</h1>
         </div>
-        <div className="dashboard-actions dashboard-actions-terminal">
-          <p className="topbar-meta">{latest ? `Last close ${formatDate(latest.date)}` : "No data"}</p>
-          <Link className="primary-link" href="/">
-            Back to landing
+        <div className="dashboard-header-actions">
+          <p className="topbar-meta">{latest ? `Last trading close ${formatDate(latest.date)}` : "No data"}</p>
+          <Link className="nav-link dashboard-back-link" href="/" title="Back to landing">
+            Landing
           </Link>
         </div>
       </header>
 
-      <section className="dashboard-market-strip" aria-label="Latest market strip">
-        <article>
-          <span>mNAV</span>
-          <strong>{latest ? `${latest.mnav.toFixed(2)}x` : "N/A"}</strong>
-        </article>
-        <article>
-          <span>BTC NAV</span>
-          <strong>{latest ? formatCurrencyCompact(latest.btcNav) : "N/A"}</strong>
-        </article>
-        <article>
-          <span>Market Cap</span>
-          <strong>{latest ? formatCurrencyCompact(latest.marketCap) : "N/A"}</strong>
-        </article>
-        <article>
-          <span>BTC Held</span>
-          <strong>{latest ? formatCompactNumber(latest.btcHoldings) : "N/A"}</strong>
-        </article>
-        <article>
-          <span>Range Return</span>
-          <strong>{latest && first ? formatPercent(latest.mnav / first.mnav - 1) : "N/A"}</strong>
-        </article>
-      </section>
-
-      <section className="dashboard-workspace">
+      <section className="dashboard-workspace dashboard-workspace-terminal">
         <section className="viewer-panel viewer-panel-terminal">
-          <div className="viewer-head viewer-head-terminal">
-            <div>
-              <p className="section-label">Comparison chart</p>
-              <h2>Rebased performance</h2>
+          <div className="instrument-bar">
+            <div className="instrument-heading">
+              <p>Strategy / mNAV</p>
+              <strong>{latest ? `${latest.mnav.toFixed(2)}x` : "N/A"}</strong>
+              <span>{latest && first ? `${formatPercent(latest.mnav / first.mnav - 1)} in selected range` : "N/A"}</span>
             </div>
+            <div className="instrument-strip">
+              <article>
+                <span>BTC</span>
+                <strong>{latest ? formatCurrency(latest.btcPrice) : "N/A"}</strong>
+              </article>
+              <article>
+                <span>MSTR</span>
+                <strong>{latest ? formatCurrency(latest.stockPrice) : "N/A"}</strong>
+              </article>
+              <article>
+                <span>BTC Held</span>
+                <strong>{latest ? formatCompactNumber(latest.btcHoldings) : "N/A"}</strong>
+              </article>
+            </div>
+          </div>
 
+          <div className="chart-toolbar">
             <div className="range-row range-row-terminal" role="tablist" aria-label="Time range selection">
               {ranges.map((range) => (
                 <button
@@ -205,33 +221,92 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
                   type="button"
                   data-active={range.value === activeRange}
                   onClick={() => setActiveRange(range.value)}
+                  title={`View ${range.label}`}
                 >
                   {range.label}
                 </button>
               ))}
             </div>
-          </div>
+            <div className="chart-toolbar-actions">
+              <div className="topbar-menu-shell chart-toolbar-menu-shell">
+                <button
+                  type="button"
+                  className="topbar-menu-button"
+                  aria-label="Dashboard controls"
+                  aria-expanded={isIndicatorMenuOpen}
+                  title="Chart controls"
+                  onClick={() => setIsIndicatorMenuOpen((current) => !current)}
+                >
+                  <span />
+                  <span />
+                  <span />
+                </button>
+                {isIndicatorMenuOpen ? (
+                  <div className="indicator-menu-panel" role="menu" aria-label="Dashboard controls">
+                    <div className="indicator-menu-group">
+                      <p className="indicator-menu-label">Visible indicators</p>
+                      {indicators.map((indicator) => (
+                        <button
+                          key={indicator.key}
+                          type="button"
+                          className="indicator-menu-item"
+                          data-active={selectedIndicators.includes(indicator.key)}
+                          onClick={() => handleIndicatorToggle(indicator.key)}
+                          aria-pressed={selectedIndicators.includes(indicator.key)}
+                          title={`Toggle ${indicator.label}`}
+                        >
+                          <span style={{ backgroundColor: indicator.colorVar }} aria-hidden="true" />
+                          {indicator.label}
+                        </button>
+                      ))}
+                    </div>
 
-          <div className="indicator-row indicator-row-terminal" aria-label="Indicator selection">
-            {indicators.map((indicator) => (
-              <button
-                key={indicator.key}
-                type="button"
-                className="indicator-chip"
-                data-active={selectedIndicators.includes(indicator.key)}
-                onClick={() => handleIndicatorToggle(indicator.key)}
-                aria-pressed={selectedIndicators.includes(indicator.key)}
-              >
-                <span style={{ backgroundColor: indicator.color }} aria-hidden="true" />
-                {indicator.label}
-              </button>
-            ))}
+                    <div className="indicator-menu-divider" />
+
+                    <div className="indicator-menu-group">
+                      <p className="indicator-menu-label">Workspace</p>
+                      <button
+                        type="button"
+                        className="indicator-menu-item indicator-menu-item-utility"
+                        data-active={showEventMarkers}
+                        onClick={() => setShowEventMarkers((current) => !current)}
+                        aria-pressed={showEventMarkers}
+                        title="Show or hide treasury event markers on the chart"
+                      >
+                        <span className="indicator-menu-glyph">•</span>
+                        Event markers
+                      </button>
+                      <button
+                        type="button"
+                        className="indicator-menu-item indicator-menu-item-utility"
+                        data-active={showTooltipDetails}
+                        onClick={() => setShowTooltipDetails((current) => !current)}
+                        aria-pressed={showTooltipDetails}
+                        title="Show or hide the chart detail box on hover"
+                      >
+                        <span className="indicator-menu-glyph">◫</span>
+                        Detail box
+                      </button>
+                      <button
+                        type="button"
+                        className="indicator-menu-item indicator-menu-item-utility"
+                        onClick={() => setSelectedIndicators(DEFAULT_INDICATORS)}
+                        title="Reset visible indicators to the default chart view"
+                      >
+                        <span className="indicator-menu-glyph">↺</span>
+                        Reset view
+                      </button>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
           </div>
 
           <div className="viewer-chart-frame viewer-chart-frame-terminal">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={chartData}>
-                <CartesianGrid stroke="rgba(117, 130, 145, 0.18)" vertical={false} />
+              <LineChart data={chartData} margin={{ top: 16, right: 18, left: 0, bottom: 0 }}>
+                <CartesianGrid stroke="rgba(117, 130, 145, 0.18)" vertical={true} />
                 <XAxis
                   dataKey="date"
                   tickFormatter={(value) =>
@@ -243,14 +318,18 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
                   minTickGap={24}
                 />
                 <YAxis
+                  orientation="right"
                   stroke="rgba(112, 121, 134, 0.9)"
                   tickLine={false}
                   axisLine={false}
                   tickFormatter={(value) => `${value.toFixed(0)}`}
-                  width={42}
+                  width={54}
                 />
-                <Tooltip content={<IndicatorTooltip selectedIndicators={selectedIndicators} />} />
-                {visibleEvents.map((event) => (
+                {showTooltipDetails ? (
+                  <Tooltip content={<IndicatorTooltip selectedIndicators={selectedIndicators} />} />
+                ) : null}
+                {showEventMarkers &&
+                  visibleEvents.map((event) => (
                   <ReferenceDot
                     key={event.date}
                     x={event.date}
@@ -260,7 +339,7 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
                     stroke="rgba(10,12,16,1)"
                     ifOverflow="extendDomain"
                   />
-                ))}
+                  ))}
                 {indicators
                   .filter((indicator) => selectedIndicators.includes(indicator.key))
                   .map((indicator) => (
@@ -268,10 +347,14 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
                       key={indicator.key}
                       type="monotone"
                       dataKey={`normalized.${indicator.key}`}
-                      stroke={indicator.color}
+                      stroke={indicator.colorVar}
                       strokeWidth={indicator.key === "mnav" ? 3 : 2}
                       dot={false}
-                      activeDot={{ r: 4, strokeWidth: 0 }}
+                      activeDot={{
+                        r: 4,
+                        strokeWidth: 0,
+                        fill: indicator.colorVar,
+                      }}
                     />
                   ))}
               </LineChart>
@@ -280,52 +363,69 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
 
           <div className="viewer-foot viewer-foot-terminal">
             <p className="chart-meta">Indexed to the first visible session at 100</p>
-            <p className="chart-meta">{latest && first ? `mNAV move ${formatPercent(latest.mnav / first.mnav - 1)}` : "N/A"}</p>
+            <p className="chart-meta">{latest ? `BTC held ${formatCompactNumber(latest.btcHoldings)}` : "N/A"}</p>
           </div>
         </section>
 
-        <aside className="dashboard-side-rail">
-          <section className="side-card">
-            <p className="section-label">Latest close</p>
-            <h3>{latest ? formatDate(latest.date) : "N/A"}</h3>
-            <dl className="side-stat-list">
-              <div>
-                <dt>BTC price</dt>
-                <dd>{latest ? formatCurrency(latest.btcPrice) : "N/A"}</dd>
+        <aside className="dashboard-side-rail dashboard-side-rail-terminal">
+          <section className="rail-panel rail-panel-continuous">
+            <section className="rail-section rail-section-card">
+              <div className="rail-section-head">
+                <h3 className="rail-heading-accent">Watchlist</h3>
               </div>
-              <div>
-                <dt>MSTR close</dt>
-                <dd>{latest ? formatCurrency(latest.stockPrice) : "N/A"}</dd>
+              <div className="watchlist-table">
+                <div className="watchlist-head">
+                  <span>Series</span>
+                  <span>Last</span>
+                </div>
+                {[
+                  { label: "mNAV", value: latest ? `${latest.mnav.toFixed(2)}x` : "N/A" },
+                  { label: "BTC", value: latest ? formatCurrency(latest.btcPrice) : "N/A" },
+                  { label: "MSTR", value: latest ? formatCurrency(latest.stockPrice) : "N/A" },
+                  { label: "BTC Held", value: latest ? formatCompactNumber(latest.btcHoldings) : "N/A" },
+                ].map((row) => (
+                  <article
+                    key={row.label}
+                    className="watchlist-row"
+                    title={`${row.label}: ${row.value}`}
+                    style={
+                      (
+                        row.label === "mNAV"
+                          ? { "--watch-accent": "var(--series-mnav)" }
+                          : row.label === "BTC"
+                            ? { "--watch-accent": "var(--series-btc)" }
+                            : row.label === "MSTR"
+                              ? { "--watch-accent": "var(--series-mstr)" }
+                              : { "--watch-accent": "var(--series-holdings)" }
+                      ) as CSSProperties
+                    }
+                  >
+                    <strong>{row.label}</strong>
+                    <span>{row.value}</span>
+                  </article>
+                ))}
               </div>
-              <div>
-                <dt>Shares assumed</dt>
-                <dd>{latest ? formatCompactNumber(latest.sharesOutstanding) : "N/A"}</dd>
-              </div>
-            </dl>
-          </section>
+            </section>
 
-          <section className="side-card">
-            <p className="section-label">Treasury timeline</p>
-            <h3>{latestEvent ? latestEvent.label : "No events"}</h3>
-            <p className="side-note">
-              {latestEvent ? `Latest disclosed holding event on ${formatDate(latestEvent.date)}.` : "Treasury event data unavailable."}
-            </p>
-            <div className="event-list">
-              {recentEvents.map((event) => (
-                <article key={`${event.date}-${event.btcHoldings}`} className="event-row">
-                  <p>{formatDate(event.date)}</p>
-                  <strong>{event.label}</strong>
+            <section className="rail-section rail-section-card">
+              <div className="rail-section-head">
+                <h3 className="rail-heading-muted">Notes</h3>
+              </div>
+              <div className="rail-note-list">
+                <article className="rail-note-row">
+                  <strong>Share count</strong>
+                  <p>{latest ? formatCompactNumber(latest.sharesOutstanding) : "N/A"}</p>
                 </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="side-card">
-            <p className="section-label">Method note</p>
-            <h3>Version 1 assumptions</h3>
-            <p className="side-note">
-              BTC holdings are carried forward between disclosures and market cap uses a fixed share-count assumption.
-            </p>
+                <article className="rail-note-row">
+                  <strong>Method</strong>
+                  <p>Fixed shares, carried holdings</p>
+                </article>
+                <article className="rail-note-row">
+                  <strong>Range move</strong>
+                  <p>{latest && first ? formatPercent(latest.mnav / first.mnav - 1) : "N/A"}</p>
+                </article>
+              </div>
+            </section>
           </section>
         </aside>
       </section>
