@@ -6,7 +6,6 @@ import {
   CartesianGrid,
   Line,
   LineChart,
-  ReferenceDot,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -143,7 +142,6 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
   const [activeRange, setActiveRange] = useState<RangeOption["value"]>("1Y");
   const [selectedIndicators, setSelectedIndicators] = useState<IndicatorKey[]>(DEFAULT_INDICATORS);
   const [isIndicatorMenuOpen, setIsIndicatorMenuOpen] = useState(false);
-  const [showEventMarkers, setShowEventMarkers] = useState(true);
   const [showTooltipDetails, setShowTooltipDetails] = useState(true);
 
   const filtered = useMemo(() => {
@@ -154,17 +152,6 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
   const chartData = useMemo(() => buildChartSeries(filtered), [filtered]);
   const latest = filtered.at(-1) ?? null;
   const first = filtered[0] ?? null;
-  const visibleEvents = useMemo(
-    () =>
-      events
-        .map((event) => {
-          const point = chartData.find((row) => row.date === event.date);
-          if (!point) return null;
-          return { date: event.date, yValue: point.normalized.mnav };
-        })
-        .filter((event): event is { date: string; yValue: number } => Boolean(event)),
-    [chartData, events],
-  );
 
   const handleIndicatorToggle = (indicator: IndicatorKey) => {
     setSelectedIndicators((current) => {
@@ -268,17 +255,6 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
                       <button
                         type="button"
                         className="indicator-menu-item indicator-menu-item-utility"
-                        data-active={showEventMarkers}
-                        onClick={() => setShowEventMarkers((current) => !current)}
-                        aria-pressed={showEventMarkers}
-                        title="Show or hide treasury event markers on the chart"
-                      >
-                        <span className="indicator-menu-glyph">•</span>
-                        Event markers
-                      </button>
-                      <button
-                        type="button"
-                        className="indicator-menu-item indicator-menu-item-utility"
                         data-active={showTooltipDetails}
                         onClick={() => setShowTooltipDetails((current) => !current)}
                         aria-pressed={showTooltipDetails}
@@ -328,18 +304,6 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
                 {showTooltipDetails ? (
                   <Tooltip content={<IndicatorTooltip selectedIndicators={selectedIndicators} />} />
                 ) : null}
-                {showEventMarkers &&
-                  visibleEvents.map((event) => (
-                  <ReferenceDot
-                    key={event.date}
-                    x={event.date}
-                    y={event.yValue}
-                    r={3}
-                    fill="rgba(255,255,255,0.92)"
-                    stroke="rgba(10,12,16,1)"
-                    ifOverflow="extendDomain"
-                  />
-                  ))}
                 {indicators
                   .filter((indicator) => selectedIndicators.includes(indicator.key))
                   .map((indicator) => (
@@ -418,7 +382,7 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
                 </article>
                 <article className="rail-note-row">
                   <strong>Method</strong>
-                  <p>Fixed shares, carried holdings</p>
+                  <p>Split-adjusted shares, carried holdings</p>
                 </article>
                 <article className="rail-note-row">
                   <strong>Range move</strong>

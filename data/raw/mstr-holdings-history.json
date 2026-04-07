@@ -2,76 +2,833 @@
   {
     "date": "2020-08-11",
     "btcHoldings": 21454,
-    "source": "Strategy press release announcing the initial Bitcoin treasury allocation."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltdc574e252ebabae5/6762eaf6fce5e8b4194e463f/form-8-k_08-11-2020.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "August 2020 Bitcoin Purchase",
+    "dateOfPurchase": "2020-08-10"
   },
   {
     "date": "2020-09-14",
     "btcHoldings": 38250,
-    "source": "Strategy press release announcing an additional Bitcoin purchase."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blta1a395d1c06cd641/6762eaf7f52f603dc8cb558d/form-8-k_09-14-2020.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "September 2020 Bitcoin Purchase",
+    "dateOfPurchase": "2020-09-14"
+  },
+  {
+    "date": "2020-12-04",
+    "btcHoldings": 40824,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt3fe7162d0085b51a/6762eaf9955b4143ee0502ba/form-8-k_12-04-2020.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2020 Bitcoin Purchase",
+    "dateOfPurchase": "2020-12-04"
   },
   {
     "date": "2020-12-21",
     "btcHoldings": 70470,
-    "source": "Strategy press release announcing the December 2020 Bitcoin acquisition."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltf03cc6bcc6619a26/6762e5cfabd4ed8831053bb1/microstrategy-announces-over-1b-in-total-bitcoin-purchases-in-2020.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2020 2nd Bitcoin Purchase",
+    "dateOfPurchase": "2020-12-21"
   },
   {
-    "date": "2021-02-24",
+    "date": "2021-01-22",
+    "btcHoldings": 70784,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt5e0c53d7e503dc88/6762e86ddb373a3ca550c2cd/Form-8-K_jan-22-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "January 2021 Bitcoin Purchase",
+    "dateOfPurchase": "2021-01-22"
+  },
+  {
+    "date": "2021-02-02",
+    "btcHoldings": 71079,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltee65f718ce15ad4c/6762e86b92dec0f87d46f8fd/Form-8-K_feb-02-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "February 2021 Bitcoin Purchase",
+    "dateOfPurchase": "2021-02-02"
+  },
+  {
+    "date": "2021-02-19",
     "btcHoldings": 90531,
-    "source": "Strategy press release announcing the February 2021 Bitcoin acquisition."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt5bd308376c91c563/6762e77df8f63fe772198bcd/form-8-k_02-19-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "February 2021 2nd Bitcoin Purchase",
+    "dateOfPurchase": "2021-02-19"
   },
   {
-    "date": "2021-06-21",
-    "btcHoldings": 105085,
-    "source": "Strategy press release announcing the June 2021 Bitcoin acquisition."
+    "date": "2021-03-01",
+    "btcHoldings": 90859,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltb1eb35399c743028/6762e7765f75f1fda016120b/form-8-k_03-01-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2021 Bitcoin Purchase",
+    "dateOfPurchase": "2021-03-01"
   },
   {
-    "date": "2021-12-29",
+    "date": "2021-03-05",
+    "btcHoldings": 91064,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltc6ddc49af2f9153f/6762e772615650cca0349c03/form-8-k_03-05-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2021 2nd Bitcoin Purchase",
+    "dateOfPurchase": "2021-03-05"
+  },
+  {
+    "date": "2021-03-12",
+    "btcHoldings": 91326,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt636ce4cbad8ad643/6762e76d76dc213ae6d13a47/form-8-k_03-12-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2021 3rd Bitcoin Purchase",
+    "dateOfPurchase": "2021-03-12"
+  },
+  {
+    "date": "2021-04-05",
+    "btcHoldings": 91579,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt6ea72a240db6a647/6762e769adc199711645bf70/form-8-k_04-05-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "April 2021 Bitcoin Purchase",
+    "dateOfPurchase": "2021-04-05"
+  },
+  {
+    "date": "2021-05-13",
+    "btcHoldings": 91850,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt5779b25007dcac3d/6762e766abd4ed2a85053c46/form-8-k_05-13-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "May 2021 Bitcoin Purchase",
+    "dateOfPurchase": "2021-05-13"
+  },
+  {
+    "date": "2021-05-18",
+    "btcHoldings": 92079,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt47bed0bb902a19f4/6762e87a955b41dfac050153/form-8-k_05-18-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "May 2021 2nd Bitcoin Purchase",
+    "dateOfPurchase": "2021-05-18"
+  },
+  {
+    "date": "2021-07-29",
+    "btcHoldings": 105084,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blte98f52768bc0770e/6762e8744c5dad8c59308e48/form-10-q_07-29-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "June 2021 Bitcoin Purchase",
+    "dateOfPurchase": "2021-06-21"
+  },
+  {
+    "date": "2021-08-24",
+    "btcHoldings": 108991,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt7378ef1f2bc33e22/6762e8488fa92c79402dee3b/form-8-k_08-24-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "August 2021 Bitcoin Purchase",
+    "dateOfPurchase": "2021-08-24"
+  },
+  {
+    "date": "2021-09-13",
+    "btcHoldings": 114041,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt8caf51003a3d7772/6762e8442aacdc07a16ee3d5/form-8-k_09-13-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "September 2021 Bitcoin Purchase",
+    "dateOfPurchase": "2021-09-13"
+  },
+  {
+    "date": "2021-11-29",
+    "btcHoldings": 121043,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt527e887053cce6ad/6762e6d776dc21635fd13a1a/form-8-k_11-29-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "November 2021 Bitcoin Purchase",
+    "dateOfPurchase": "2021-11-29"
+  },
+  {
+    "date": "2021-12-09",
+    "btcHoldings": 122477,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt5b947cb811684db3/6762e6d72aacdc4db56ee363/form-8-k_12-09-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2021 Bitcoin Purchase",
+    "dateOfPurchase": "2021-12-09"
+  },
+  {
+    "date": "2021-12-30",
     "btcHoldings": 124391,
-    "source": "Strategy press release announcing the December 2021 Bitcoin acquisition."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltbde8b6174304ea24/6762e6d64ea89394e8db8987/form-8-k-12-30-2021.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2021 2nd Bitcoin Purchase",
+    "dateOfPurchase": "2021-12-30"
   },
   {
-    "date": "2022-06-28",
-    "btcHoldings": 129699,
-    "source": "Strategy press release announcing the June 2022 Bitcoin acquisition."
+    "date": "2022-02-01",
+    "btcHoldings": 125051,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt727dd2182866e1bb/6762e862a8805504644790e0/form-8-k-2-1-2022.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "February 2022 Bitcoin Purchase",
+    "dateOfPurchase": "2022-02-01"
   },
   {
-    "date": "2023-11-29",
+    "date": "2022-04-05",
+    "btcHoldings": 129218,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt18b9bf70a2b0ee5a/6762e8534e3eed24d24251b1/form-8-k-4-5-2022.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "April 2022 Bitcoin Purchase",
+    "dateOfPurchase": "2022-04-05"
+  },
+  {
+    "date": "2022-06-29",
+    "btcHoldings": 129698,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt680cf6d70bb93fb3/6762e8c0f8007a1e97d1dd36/form-8-k_06-29-2022.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "June 2022 Bitcoin Purchase",
+    "dateOfPurchase": "2022-06-29"
+  },
+  {
+    "date": "2022-09-20",
+    "btcHoldings": 129999,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt7c8ae40e62884f4c/6762e8bb61565015d9349c9a/form-8-k_9-20-2022.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "September 2022 Bitcoin Purchase",
+    "dateOfPurchase": "2022-09-20"
+  },
+  {
+    "date": "2022-12-28",
+    "btcHoldings": 132500,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt0168b1ea68abe987/6762e8b24c5dad78cc308e74/form-8-k-12-28-2022.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2022 Bitcoin Purchase",
+    "dateOfPurchase": "2022-12-28"
+  },
+  {
+    "date": "2023-03-23",
+    "btcHoldings": 138955,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt68b6549158df7ea1/6762e8f864ea61d4b08ea43d/form-8-k_3-27-2023.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2023 Bitcoin Purchase",
+    "dateOfPurchase": "2023-03-23"
+  },
+  {
+    "date": "2023-04-05",
+    "btcHoldings": 140000,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt456cc8f6469cf4a8/6762e8f6485851a4ab42c8d1/form-8-k_4-5-2023.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "April 2023 Bitcoin Purchase",
+    "dateOfPurchase": "2023-04-05"
+  },
+  {
+    "date": "2023-06-28",
+    "btcHoldings": 152333,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt5b38ddb2518a0958/6762e7d1f8007ada7cd1dcc8/form-8-k_06-28-2023.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "June 2023 Bitcoin Purchase",
+    "dateOfPurchase": "2023-06-28"
+  },
+  {
+    "date": "2023-08-01",
+    "btcHoldings": 152800,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltff4fb7bf2dfd191e/6762e7bd567dc932808c0d36/form-8-k_08-01-2023.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "August 2023 Bitcoin Purchase",
+    "dateOfPurchase": "2023-08-01"
+  },
+  {
+    "date": "2023-09-25",
+    "btcHoldings": 158245,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blte62d76e9a736661d/6762e6d2f8f63f8fa1198b95/form-8-k_9-25-2023.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "September 2023 Bitcoin Purchase",
+    "dateOfPurchase": "2023-09-25"
+  },
+  {
+    "date": "2023-11-01",
+    "btcHoldings": 158400,
+    "source": "https://www.strategy.com/purchases",
+    "sourceKind": "strategy-purchases",
+    "title": "November 2023 1 Bitcoin Purchase",
+    "dateOfPurchase": "2023-11-01"
+  },
+  {
+    "date": "2023-11-30",
     "btcHoldings": 174530,
-    "source": "Strategy press release announcing the November 2023 Bitcoin acquisition."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt429466619d63f07c/6762eaeadb373a372950c3e0/form-8-k_11-30-2023.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "November 2023 Bitcoin Purchase",
+    "dateOfPurchase": "2023-11-30"
   },
   {
-    "date": "2024-03-18",
-    "btcHoldings": 214246,
-    "source": "Strategy press release announcing the March 2024 convertible-notes-funded Bitcoin acquisition."
+    "date": "2023-12-27",
+    "btcHoldings": 189150,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt0c1f4d0e1377ed59/6762ead5ca986f11a04415e2/form-8-k_12-27-2023.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2023 Bitcoin Purchase",
+    "dateOfPurchase": "2023-12-27"
+  },
+  {
+    "date": "2024-02-06",
+    "btcHoldings": 190000,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt8204dafd37c29e05/6762ebd578b402728bb28b02/form-8-k_02-06-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "February 2024 Bitcoin Purchase",
+    "dateOfPurchase": "2024-02-06"
+  },
+  {
+    "date": "2024-02-26",
+    "btcHoldings": 193000,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltc876f2a9d0ebcf19/6762ecc84c5dad260c309075/form-8-k-02-26-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "February 2024 2nd Bitcoin Purchase",
+    "dateOfPurchase": "2024-02-26"
+  },
+  {
+    "date": "2024-03-11",
+    "btcHoldings": 205000,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt76afcbb49a752853/6762ed2df8007a291ad1df45/form-8-k_03-11-2024_filing-2.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2024 Bitcoin Purchase",
+    "dateOfPurchase": "2024-03-11"
+  },
+  {
+    "date": "2024-04-29",
+    "btcHoldings": 214400,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt16d5878cb4cc755b/6762eefc92dec0a38746fb48/form-8-k_04-29-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "April 2024 Bitcoin Purchase",
+    "dateOfPurchase": "2024-04-29"
+  },
+  {
+    "date": "2024-05-01",
+    "btcHoldings": 214245,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt353870cd110de3f2/6762ef03a88055253c479382/form-10-q_05-01-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2024 2nd Bitcoin Purchase",
+    "dateOfPurchase": "2024-03-19"
   },
   {
     "date": "2024-06-20",
     "btcHoldings": 226331,
-    "source": "Strategy press release announcing the June 2024 Bitcoin acquisition."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt89a2fe60e8b9e1d6/6762f0ba05bd36588e170b54/form-8-k_06-20-2024_filing-2.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "June 2024 Bitcoin Purchase",
+    "dateOfPurchase": "2024-06-20"
+  },
+  {
+    "date": "2024-08-01",
+    "btcHoldings": 226500,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt757dfa3cd3fbfd97/6762f06a1f256473c21f3fc5/form-8-k_08-01-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "August 2024 Bitcoin Purchase",
+    "dateOfPurchase": "2024-08-01"
+  },
+  {
+    "date": "2024-09-13",
+    "btcHoldings": 244800,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt718e20bb8f9e3b0a/6762f109a880554efd47944e/form-8-k_09-13-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "September 2024 Bitcoin Purchase",
+    "dateOfPurchase": "2024-09-13"
   },
   {
     "date": "2024-09-20",
     "btcHoldings": 252220,
-    "source": "Strategy press release announcing the September 2024 Bitcoin acquisition."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt991ee192ba13f80f/6762f230ca986f88574418df/form-8-k_09-20-2024_filing-2.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "September 2024 2nd Bitcoin Purchase",
+    "dateOfPurchase": "2024-09-20"
   },
   {
-    "date": "2024-11-17",
+    "date": "2024-11-11",
+    "btcHoldings": 279420,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt1b877c81be9d04a4/6762f1728fa92c33592df219/microstrategy-announces-btc-and-atm-activity-raised-2-billion-purchased-27200-btc-now-holds-279420-btc-with-btc-yield-of-26-ytd_11-11-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "November 2024 Bitcoin Purchase",
+    "dateOfPurchase": "2024-11-11"
+  },
+  {
+    "date": "2024-11-18",
     "btcHoldings": 331200,
-    "source": "Strategy press release announcing the November 2024 Bitcoin acquisition."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt7996610d78da8a82/6762f2004ea89362f5db8de8/form_8-k_11-18-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "November 2024 2",
+    "dateOfPurchase": "2024-11-18"
   },
   {
-    "date": "2024-12-15",
+    "date": "2024-11-25",
+    "btcHoldings": 386700,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blta00c7f92f099d225/6762f2eb567dc930098c1118/form_8-k_11-25-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "November 2024 3",
+    "dateOfPurchase": "2024-11-25"
+  },
+  {
+    "date": "2024-12-02",
+    "btcHoldings": 402100,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt5e3c0dc34b3ae6c0/6762f29d1002442ce1f34c4f/form_8-k_12-02-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2024",
+    "dateOfPurchase": "2024-12-02"
+  },
+  {
+    "date": "2024-12-09",
+    "btcHoldings": 423650,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltd8fef0d6e2e383dd/6762f2bffd4cd58bf72a7a13/form-8-k_12-09-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2024 2",
+    "dateOfPurchase": "2024-12-09"
+  },
+  {
+    "date": "2024-12-16",
     "btcHoldings": 439000,
-    "source": "Strategy press release announcing the December 2024 Bitcoin acquisition."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt9cf4c91e358261d5/67904890a5499b7bac14c8e9/form-8-k_12-16-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2024 3",
+    "dateOfPurchase": "2024-12-16"
   },
   {
-    "date": "2025-02-23",
+    "date": "2024-12-23",
+    "btcHoldings": 444262,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltea8c5afa54da4ebe/67904894ee8f386181aa423c/form-8-k_12-23-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2024 4",
+    "dateOfPurchase": "2024-12-23"
+  },
+  {
+    "date": "2024-12-30",
+    "btcHoldings": 446400,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt3335ee4952b134e5/679048944a7803460b6c1039/form-8-k_12-30-2024.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2024 5",
+    "dateOfPurchase": "2024-12-30"
+  },
+  {
+    "date": "2025-01-06",
+    "btcHoldings": 447470,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt6fddb9536eacd95b/67904889e345b42d4058e52a/form-8-k_01-06-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "January 2025",
+    "dateOfPurchase": "2025-01-06"
+  },
+  {
+    "date": "2025-01-13",
+    "btcHoldings": 450000,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltac497dd9c0a0bc7f/679048897d9db27e9ac08a91/form-8-k_01-13-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "January 2025 2",
+    "dateOfPurchase": "2025-01-13"
+  },
+  {
+    "date": "2025-01-21",
+    "btcHoldings": 461000,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt5bfa767450dc345c/6790489058fb6d753c81140d/form-8-k_01-21-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "January 2025 3",
+    "dateOfPurchase": "2025-01-21"
+  },
+  {
+    "date": "2025-01-27",
+    "btcHoldings": 471107,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt8dea3c19b20236cb/67970290b0180c10b8039b9e/form-8-k_01-27-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "January 2025 4",
+    "dateOfPurchase": "2025-01-27"
+  },
+  {
+    "date": "2025-02-10",
+    "btcHoldings": 478740,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt26b45cf8e908796b/67a9830b0607f957794bd8fe/form-8-k_02-10-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "February 2025 1",
+    "dateOfPurchase": "2025-02-10"
+  },
+  {
+    "date": "2025-02-24",
     "btcHoldings": 499096,
-    "source": "Strategy press release announcing the February 2025 Bitcoin acquisition."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltadce64077682d0aa/67bbc180d98aa90718cae420/form-8-k-filing-2_02-24-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "February 2025 2",
+    "dateOfPurchase": "2025-02-24"
   },
   {
-    "date": "2025-05-26",
+    "date": "2025-03-17",
+    "btcHoldings": 499226,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blte3ca6b2da8324883/67d794bdcca70a077439f04a/form-8-k_03-17-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2025",
+    "dateOfPurchase": "2025-03-17"
+  },
+  {
+    "date": "2025-03-24",
+    "btcHoldings": 506137,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blte0abc9285e26f23a/67e140ffedf277505f90a349/form-8-k_03-24-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2025 2",
+    "dateOfPurchase": "2025-03-24"
+  },
+  {
+    "date": "2025-03-31",
+    "btcHoldings": 528185,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blte63472b2c8ecf250/67ea7d193ed2b0c4711e5ec6/form-8-k_03-31-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2025 3",
+    "dateOfPurchase": "2025-03-31"
+  },
+  {
+    "date": "2025-04-14",
+    "btcHoldings": 531644,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt0ab5f2fd70f14362/67fc78ac45637706bf9c6141/form-8-k_04-14-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "April 2025",
+    "dateOfPurchase": "2025-04-14"
+  },
+  {
+    "date": "2025-04-21",
+    "btcHoldings": 538200,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt0d37b0481a7a31df/6805a9fd4851b5fb07d317dd/form-8-k_04-21-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "April 2025 2",
+    "dateOfPurchase": "2025-04-21"
+  },
+  {
+    "date": "2025-04-28",
+    "btcHoldings": 553555,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blta035f85859d93ede/680f71e5ee7e73a526c614fe/form-8-k_04-28-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "April 2025 3",
+    "dateOfPurchase": "2025-04-28"
+  },
+  {
+    "date": "2025-05-05",
+    "btcHoldings": 555450,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt530624966fb17ac3/6818a606cc0bf423515ffcad/form-8-k_05-05-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "May 2025",
+    "dateOfPurchase": "2025-05-05"
+  },
+  {
+    "date": "2025-05-12",
+    "btcHoldings": 568840,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltce5711b3188241ab/6821caa58024e2d268071d29/form-8-k_05-12-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "May 2025 2",
+    "dateOfPurchase": "2025-05-12"
+  },
+  {
+    "date": "2025-05-19",
+    "btcHoldings": 576230,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltfba7ca0af6a9f6a8/682a9fc86555216ab73157fb/form-8-k_05-19-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "May 2025 3",
+    "dateOfPurchase": "2025-05-19"
+  },
+  {
+    "date": "2025-05-27",
     "btcHoldings": 580250,
-    "source": "Strategy press release announcing the May 26 2025 Bitcoin acquisition."
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt404998a379f0e2e5/68351d4e980bb677b8728a06/form-8-k_05-27-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "May 2025 4",
+    "dateOfPurchase": "2025-05-26"
+  },
+  {
+    "date": "2025-06-02",
+    "btcHoldings": 580955,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blta9e30f5fb36c66f0/683d8ca3426b2a66bd583161/form-8-k_06-02-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "June 2025",
+    "dateOfPurchase": "2025-06-02"
+  },
+  {
+    "date": "2025-06-09",
+    "btcHoldings": 582000,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt965ca3d5f33c5f6c/6845fe40498eb0b71aacb51c/form-8-k_06-09-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "June 2025 2",
+    "dateOfPurchase": "2025-06-09"
+  },
+  {
+    "date": "2025-06-16",
+    "btcHoldings": 592100,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt0908f8540d9703fc/684f687837c391655f22cbd1/form-8-k_06-16-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "June 2025 3",
+    "dateOfPurchase": "2025-06-16"
+  },
+  {
+    "date": "2025-06-23",
+    "btcHoldings": 592345,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt863247f049c38d5d/685940f5261e0b42efacce21/form-8-k_filing-1_06-23-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "June 2025 4",
+    "dateOfPurchase": "2025-06-23"
+  },
+  {
+    "date": "2025-06-30",
+    "btcHoldings": 597325,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt9881a4184cc6914d/68627916b77630517afe221c/form-8-k_06-30-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "June 2025 5",
+    "dateOfPurchase": "2025-06-30"
+  },
+  {
+    "date": "2025-07-14",
+    "btcHoldings": 601550,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt4cc1a0ae496ac9e3/68747439e8921d53d6fa6b41/form-8-k_07-14-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "July 2025",
+    "dateOfPurchase": "2025-07-14"
+  },
+  {
+    "date": "2025-07-21",
+    "btcHoldings": 607770,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltaecbaeed9af104b4/687d68f6829ffb97ac47d232/form-8-k_07-21-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "July 2025 2",
+    "dateOfPurchase": "2025-07-21"
+  },
+  {
+    "date": "2025-07-29",
+    "btcHoldings": 628791,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt85987a90c1297675/68892a675012427800ecde07/form-8-k_07-29-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "July 2025 3",
+    "dateOfPurchase": "2025-07-29"
+  },
+  {
+    "date": "2025-08-11",
+    "btcHoldings": 628946,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltb463109672765cbc/6899e9394c4b55832ef0e635/form-8-k_08-11-2025_filing-1.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "August 2025",
+    "dateOfPurchase": "2025-08-11"
+  },
+  {
+    "date": "2025-08-18",
+    "btcHoldings": 629376,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt862da2201c548ca3/68a291be67858b783f55d1d1/form-8-k_08-18-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "August 2025 2",
+    "dateOfPurchase": "2025-08-18"
+  },
+  {
+    "date": "2025-08-25",
+    "btcHoldings": 632457,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blta457fda90cf3345c/68abb51b7119ea801fdaf56e/form-8-k_08-25-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "August 2025 3",
+    "dateOfPurchase": "2025-08-25"
+  },
+  {
+    "date": "2025-09-02",
+    "btcHoldings": 636505,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt63e9dde3c206cd4e/68b6172178db1009fff4b265/form-8-k_09-02-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "September 2025",
+    "dateOfPurchase": "2025-09-02"
+  },
+  {
+    "date": "2025-09-08",
+    "btcHoldings": 638460,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blte7bd2e4d75e01dd9/68be1d7f356bcf3354727a30/form-8-k_09-08-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "September 2025 2",
+    "dateOfPurchase": "2025-09-08"
+  },
+  {
+    "date": "2025-09-15",
+    "btcHoldings": 638985,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt41a67df64437849b/68c785f54a2c2dadaf122ab2/form-8-k_09-15-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "September 2025 3",
+    "dateOfPurchase": "2025-09-15"
+  },
+  {
+    "date": "2025-09-22",
+    "btcHoldings": 639835,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt12ca664c19b20e77/68d0b6f8dfcdb6d68cb4f09d/form-8-k_09-22-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "September 2025 4",
+    "dateOfPurchase": "2025-09-22"
+  },
+  {
+    "date": "2025-09-29",
+    "btcHoldings": 640031,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt56cdd8e554b9a963/68d9cab4497a9a9bc5c9ccda/form-8-k_09-29-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "September 2025 5",
+    "dateOfPurchase": "2025-09-29"
+  },
+  {
+    "date": "2025-10-13",
+    "btcHoldings": 640250,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltf1d894170dc21720/68ec73beb5c8cb623d14dcb4/strategy-acquires-220-btc-and-achieves-btc-yield-of-25-9-ytd-now-holds-640250-btc_10-13-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "October 2025",
+    "dateOfPurchase": "2025-10-13"
+  },
+  {
+    "date": "2025-10-20",
+    "btcHoldings": 640418,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt2829fd4822c1bf78/68f599bf69003d69ba0d7492/form-8-k_10-20-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "October 2025 2",
+    "dateOfPurchase": "2025-10-20"
+  },
+  {
+    "date": "2025-10-27",
+    "btcHoldings": 640808,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt5d53967701adc5e7/68fec8cf58694f22dc2c67b8/form-8-k_10-27-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "October 2025 3",
+    "dateOfPurchase": "2025-10-27"
+  },
+  {
+    "date": "2025-11-03",
+    "btcHoldings": 641205,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltafec8168d365fffa/690838c1531ab0abd528156b/form-8-k_11-03-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "November 2025",
+    "dateOfPurchase": "2025-11-03"
+  },
+  {
+    "date": "2025-11-10",
+    "btcHoldings": 641692,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltdba4fc803e019d1e/69114d2ecc0c83c2fa618ffc/form-8-k_11-10-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "November 2025 2",
+    "dateOfPurchase": "2025-11-10"
+  },
+  {
+    "date": "2025-11-17",
+    "btcHoldings": 649870,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt27517abcb8f459e3/691aaadfcd08266e2ec6fbe9/form-8-k_11-17-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "November 2025 3",
+    "dateOfPurchase": "2025-11-17"
+  },
+  {
+    "date": "2025-12-01",
+    "btcHoldings": 650000,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt8dc48db96aa45630/692d2084b48b45d7143fc17d/form-8-k_12-01-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2025",
+    "dateOfPurchase": "2025-12-01"
+  },
+  {
+    "date": "2025-12-08",
+    "btcHoldings": 660624,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltccd0f74978e08d27/69364a5cf27a3818eaf5806b/form-8-k_12-08-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2025 2",
+    "dateOfPurchase": "2025-12-08"
+  },
+  {
+    "date": "2025-12-15",
+    "btcHoldings": 671268,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt2f135136f7b10442/693f3b494fa905f93442a932/form-8-k_12-15-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2025 3",
+    "dateOfPurchase": "2025-12-15"
+  },
+  {
+    "date": "2025-12-29",
+    "btcHoldings": 672497,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt50c67b947ebad326/6951a0c3a88d5c1ac5b336a8/form-8-k_12-29-2025.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "December 2025 4",
+    "dateOfPurchase": "2025-12-29"
+  },
+  {
+    "date": "2026-01-05",
+    "btcHoldings": 673783,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltd1697ee0df7f31c7/695bb32419f3d4640d94619b/form-8-k_01-05-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "January 2026",
+    "dateOfPurchase": "2026-01-05"
+  },
+  {
+    "date": "2026-01-12",
+    "btcHoldings": 687410,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blta7da64f7ebf6312a/69645ea3818dc30008b31ebb/form-8-k_01-12-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "January 2026 2",
+    "dateOfPurchase": "2026-01-12"
+  },
+  {
+    "date": "2026-01-20",
+    "btcHoldings": 709715,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltc3f3c9ce5257e06b/696ee1992e942bec27271f03/form-8-k_01-20-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "January 2026 3",
+    "dateOfPurchase": "2026-01-20"
+  },
+  {
+    "date": "2026-01-26",
+    "btcHoldings": 712647,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt38c73b77a3b1661a/6976b57244632962826a47eb/form-8-k_01-26-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "January 2026 4",
+    "dateOfPurchase": "2026-01-26"
+  },
+  {
+    "date": "2026-02-02",
+    "btcHoldings": 713502,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blte7ee5418df528bb8/697ffb2f02f45c7e5618ccef/form-8-k_02-02-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "February 2026",
+    "dateOfPurchase": "2026-02-02"
+  },
+  {
+    "date": "2026-02-09",
+    "btcHoldings": 714644,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltfd6482b068118eca/69895eadbf8f6855b6f75f20/form-8-k_02-09-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "February 2026 2",
+    "dateOfPurchase": "2026-02-09"
+  },
+  {
+    "date": "2026-02-17",
+    "btcHoldings": 717131,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blta9f85a952e7f1a54/6993371a7dd2cc0008d22eb9/form-8-k_02-17-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "February 2026 3",
+    "dateOfPurchase": "2026-02-17"
+  },
+  {
+    "date": "2026-02-23",
+    "btcHoldings": 717722,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blta1987f50a54e7448/699bcae73f35720008e049bd/form-8-k_02-23-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "February 2026 4",
+    "dateOfPurchase": "2026-02-23"
+  },
+  {
+    "date": "2026-03-02",
+    "btcHoldings": 720737,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blta1e8189e6fc9fe35/69a51d14716ab880524425f1/form-8-k_03-02-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2026",
+    "dateOfPurchase": "2026-03-02"
+  },
+  {
+    "date": "2026-03-09",
+    "btcHoldings": 738731,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt2c86418156848741/69ae1f6acb63a70008936b50/form-8-k_03-09-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2026 2",
+    "dateOfPurchase": "2026-03-09"
+  },
+  {
+    "date": "2026-03-16",
+    "btcHoldings": 761068,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/blt8021396b97d4846e/69b7814667be9e856f70b020/form-8-k_03-16-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2026 3",
+    "dateOfPurchase": "2026-03-16"
+  },
+  {
+    "date": "2026-03-23",
+    "btcHoldings": 762099,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltddc68ec67ae13dae/69c0a061e335e7ae80542071/form-8-k_03-23-2026_filing-1.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "March 2026 4",
+    "dateOfPurchase": "2026-03-23"
+  },
+  {
+    "date": "2026-04-06",
+    "btcHoldings": 766970,
+    "source": "https://assets.contentstack.io/v3/assets/bltf8d808d9b8cebd37/bltfccad63f1d04ff93/69d333062c747bee51577037/form-8-k_04-06-2026.pdf",
+    "sourceKind": "strategy-purchases",
+    "title": "April 2026",
+    "dateOfPurchase": "2026-04-06"
   }
 ]

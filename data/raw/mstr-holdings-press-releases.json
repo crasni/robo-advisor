@@ -1,0 +1,77 @@
+[
+  {
+    "date": "2020-08-11",
+    "btcHoldings": 21454,
+    "source": "Strategy press release announcing the initial Bitcoin treasury allocation."
+  },
+  {
+    "date": "2020-09-14",
+    "btcHoldings": 38250,
+    "source": "Strategy press release announcing an additional Bitcoin purchase."
+  },
+  {
+    "date": "2020-12-21",
+    "btcHoldings": 70470,
+    "source": "Strategy press release announcing the December 2020 Bitcoin acquisition."
+  },
+  {
+    "date": "2021-02-24",
+    "btcHoldings": 90531,
+    "source": "Strategy press release announcing the February 2021 Bitcoin acquisition."
+  },
+  {
+    "date": "2021-06-21",
+    "btcHoldings": 105085,
+    "source": "Strategy press release announcing the June 2021 Bitcoin acquisition."
+  },
+  {
+    "date": "2021-12-29",
+    "btcHoldings": 124391,
+    "source": "Strategy press release announcing the December 2021 Bitcoin acquisition."
+  },
+  {
+    "date": "2022-06-28",
+    "btcHoldings": 129699,
+    "source": "Strategy press release announcing the June 2022 Bitcoin acquisition."
+  },
+  {
+    "date": "2023-11-29",
+    "btcHoldings": 174530,
+    "source": "Strategy press release announcing the November 2023 Bitcoin acquisition."
+  },
+  {
+    "date": "2024-03-18",
+    "btcHoldings": 214246,
+    "source": "Strategy press release announcing the March 2024 convertible-notes-funded Bitcoin acquisition."
+  },
+  {
+    "date": "2024-06-20",
+    "btcHoldings": 226331,
+    "source": "Strategy press release announcing the June 2024 Bitcoin acquisition."
+  },
+  {
+    "date": "2024-09-20",
+    "btcHoldings": 252220,
+    "source": "Strategy press release announcing the September 2024 Bitcoin acquisition."
+  },
+  {
+    "date": "2024-11-17",
+    "btcHoldings": 331200,
+    "source": "Strategy press release announcing the November 2024 Bitcoin acquisition."
+  },
+  {
+    "date": "2024-12-15",
+    "btcHoldings": 439000,
+    "source": "Strategy press release announcing the December 2024 Bitcoin acquisition."
+  },
+  {
+    "date": "2025-02-23",
+    "btcHoldings": 499096,
+    "source": "Strategy press release announcing the February 2025 Bitcoin acquisition."
+  },
+  {
+    "date": "2025-05-26",
+    "btcHoldings": 580250,
+    "source": "Strategy press release announcing the May 26 2025 Bitcoin acquisition."
+  }
+]

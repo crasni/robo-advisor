@@ -3,7 +3,9 @@ import rawHoldings from "@/data/raw/mstr-holdings-history.json";
 import type { MnavRecord, RangeOption, TreasuryEvent } from "@/lib/types";
 
 export const timeSeries = rawSeries as MnavRecord[];
-export const treasuryEvents = (rawHoldings as TreasuryEvent[]).map((event) => ({
+type RawTreasuryEvent = Omit<TreasuryEvent, "label">;
+
+export const treasuryEvents = (rawHoldings as RawTreasuryEvent[]).map((event) => ({
   ...event,
   label: `${event.btcHoldings.toLocaleString("en-US")} BTC`,
 }));

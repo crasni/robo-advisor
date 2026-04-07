@@ -1,0 +1,252 @@
+[
+  {
+    "date": "2020-02-02",
+    "sharesOutstanding": 10105013,
+    "classAShares": 8069829,
+    "classBShares": 2035184,
+    "form": "10-K",
+    "filingDate": "2020-02-14",
+    "accessionNumber": "0001564590-20-004679",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459020004679/mstr-10k_20191231.htm"
+  },
+  {
+    "date": "2020-04-19",
+    "sharesOutstanding": 9764101,
+    "classAShares": 7728917,
+    "classBShares": 2035184,
+    "form": "10-Q",
+    "filingDate": "2020-04-28",
+    "accessionNumber": "0001564590-20-019245",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459020019245/mstr-10q_20200331.htm"
+  },
+  {
+    "date": "2020-07-19",
+    "sharesOutstanding": 9686177,
+    "classAShares": 7650993,
+    "classBShares": 2035184,
+    "form": "10-Q",
+    "filingDate": "2020-07-28",
+    "accessionNumber": "0001564590-20-033897",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459020033897/mstr-10q_20200630.htm"
+  },
+  {
+    "date": "2020-10-18",
+    "sharesOutstanding": 9266989,
+    "classAShares": 7252964,
+    "classBShares": 2014025,
+    "form": "10-Q",
+    "filingDate": "2020-10-27",
+    "accessionNumber": "0001564590-20-047995",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459020047995/mstr-10q_20200930.htm"
+  },
+  {
+    "date": "2021-02-01",
+    "sharesOutstanding": 9587022,
+    "classAShares": 7622997,
+    "classBShares": 1964025,
+    "form": "10-K",
+    "filingDate": "2021-02-12",
+    "accessionNumber": "0001564590-21-005783",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459021005783/mstr-10k_20201231.htm"
+  },
+  {
+    "date": "2021-04-21",
+    "sharesOutstanding": 9745593,
+    "classAShares": 7781568,
+    "classBShares": 1964025,
+    "form": "10-Q",
+    "filingDate": "2021-04-29",
+    "accessionNumber": "0001564590-21-021949",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459021021949/mstr-10q_20210331.htm"
+  },
+  {
+    "date": "2021-07-21",
+    "sharesOutstanding": 9747468,
+    "classAShares": 7783443,
+    "classBShares": 1964025,
+    "form": "10-Q",
+    "filingDate": "2021-07-29",
+    "accessionNumber": "0001564590-21-039125",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459021039125/mstr-10q_20210630.htm"
+  },
+  {
+    "date": "2021-10-20",
+    "sharesOutstanding": 10357609,
+    "classAShares": 8393584,
+    "classBShares": 1964025,
+    "form": "10-Q",
+    "filingDate": "2021-10-28",
+    "accessionNumber": "0001564590-21-052646",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459021052646/mstr-10q_20210930.htm"
+  },
+  {
+    "date": "2022-01-31",
+    "sharesOutstanding": 11285419,
+    "classAShares": 9321394,
+    "classBShares": 1964025,
+    "form": "10-K",
+    "filingDate": "2022-02-16",
+    "accessionNumber": "0001564590-22-005287",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459022005287/mstr-10k_20211231.htm"
+  },
+  {
+    "date": "2022-04-25",
+    "sharesOutstanding": 11297548,
+    "classAShares": 9333523,
+    "classBShares": 1964025,
+    "form": "10-Q",
+    "filingDate": "2022-05-03",
+    "accessionNumber": "0001564590-22-017437",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459022017437/mstr-10q_20220331.htm"
+  },
+  {
+    "date": "2022-07-25",
+    "sharesOutstanding": 11300906,
+    "classAShares": 9336881,
+    "classBShares": 1964025,
+    "form": "10-Q",
+    "filingDate": "2022-08-02",
+    "accessionNumber": "0001564590-22-027479",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459022027479/mstr-10q_20220630.htm"
+  },
+  {
+    "date": "2022-10-24",
+    "sharesOutstanding": 11317719,
+    "classAShares": 9353694,
+    "classBShares": 1964025,
+    "form": "10-Q",
+    "filingDate": "2022-11-01",
+    "accessionNumber": "0001564590-22-036073",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459022036073/mstr-10q_20220930.htm"
+  },
+  {
+    "date": "2023-02-01",
+    "sharesOutstanding": 11548757,
+    "classAShares": 9584732,
+    "classBShares": 1964025,
+    "form": "10-K",
+    "filingDate": "2023-02-16",
+    "accessionNumber": "0001564590-23-002012",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000156459023002012/mstr-10k_20221231.htm"
+  },
+  {
+    "date": "2023-04-24",
+    "sharesOutstanding": 12958651,
+    "classAShares": 10994626,
+    "classBShares": 1964025,
+    "form": "10-Q",
+    "filingDate": "2023-05-01",
+    "accessionNumber": "0000950170-23-016229",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000095017023016229/mstr-20230331.htm"
+  },
+  {
+    "date": "2023-07-25",
+    "sharesOutstanding": 14085394,
+    "classAShares": 12121369,
+    "classBShares": 1964025,
+    "form": "10-Q",
+    "filingDate": "2023-08-01",
+    "accessionNumber": "0000950170-23-036448",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000095017023036448/mstr-20230630.htm"
+  },
+  {
+    "date": "2023-10-24",
+    "sharesOutstanding": 14518184,
+    "classAShares": 12554159,
+    "classBShares": 1964025,
+    "form": "10-Q",
+    "filingDate": "2023-11-01",
+    "accessionNumber": "0000950170-23-057418",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000095017023057418/mstr-20230930.htm"
+  },
+  {
+    "date": "2024-02-01",
+    "sharesOutstanding": 16968125,
+    "classAShares": 15004100,
+    "classBShares": 1964025,
+    "form": "10-K",
+    "filingDate": "2024-02-15",
+    "accessionNumber": "0000950170-24-015847",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000095017024015847/mstr-20231231.htm"
+  },
+  {
+    "date": "2024-04-24",
+    "sharesOutstanding": 17737431,
+    "classAShares": 15773406,
+    "classBShares": 1964025,
+    "form": "10-Q",
+    "filingDate": "2024-05-01",
+    "accessionNumber": "0000950170-24-051230",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000095017024051230/mstr-20240331.htm"
+  },
+  {
+    "date": "2024-07-25",
+    "sharesOutstanding": 19432070,
+    "classAShares": 17468045,
+    "classBShares": 1964025,
+    "form": "10-Q",
+    "filingDate": "2024-08-06",
+    "accessionNumber": "0000950170-24-091778",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000095017024091778/mstr-20240630.htm"
+  },
+  {
+    "date": "2024-10-21",
+    "sharesOutstanding": 202644230,
+    "classAShares": 183003980,
+    "classBShares": 19640250,
+    "form": "10-Q",
+    "filingDate": "2024-10-31",
+    "accessionNumber": "0000950170-24-119263",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000095017024119263/mstr-20240930.htm"
+  },
+  {
+    "date": "2025-02-04",
+    "sharesOutstanding": 257351857,
+    "classAShares": 237711607,
+    "classBShares": 19640250,
+    "form": "10-K",
+    "filingDate": "2025-02-18",
+    "accessionNumber": "0000950170-25-021814",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000095017025021814/mstr-20241231.htm"
+  },
+  {
+    "date": "2025-05-02",
+    "sharesOutstanding": 273403303,
+    "classAShares": 253763053,
+    "classBShares": 19640250,
+    "form": "10-Q",
+    "filingDate": "2025-05-05",
+    "accessionNumber": "0000950170-25-063536",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000095017025063536/mstr-20250331.htm"
+  },
+  {
+    "date": "2025-07-31",
+    "sharesOutstanding": 283552947,
+    "classAShares": 263912697,
+    "classBShares": 19640250,
+    "form": "10-Q",
+    "filingDate": "2025-08-05",
+    "accessionNumber": "0000950170-25-102209",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000095017025102209/mstr-20250630.htm"
+  },
+  {
+    "date": "2025-10-30",
+    "sharesOutstanding": 287353735,
+    "classAShares": 267713485,
+    "classBShares": 19640250,
+    "form": "10-Q",
+    "filingDate": "2025-11-03",
+    "accessionNumber": "0001193125-25-262568",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000119312525262568/mstr-20250930.htm"
+  },
+  {
+    "date": "2026-02-13",
+    "sharesOutstanding": 333752708,
+    "classAShares": 314112458,
+    "classBShares": 19640250,
+    "form": "10-K",
+    "filingDate": "2026-02-19",
+    "accessionNumber": "0001050446-26-000020",
+    "source": "https://www.sec.gov/Archives/edgar/data/1050446/000105044626000020/mstr-20251231.htm"
+  }
+]

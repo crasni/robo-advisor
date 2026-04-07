@@ -123,8 +123,10 @@ export function LandingExperience({ latest, firstDate }: LandingExperienceProps)
           <div className="slab-copy">
             <h2>Fast to read. Simple to audit.</h2>
             <p>
-              The app combines BTC daily closes, MSTR daily closes, and a manually curated Strategy holdings timeline.
-              Version 1 uses a fixed share count.
+              The app combines BTC daily closes, MSTR daily closes, and an automated Strategy holdings timeline sourced
+              from official tracker pages.
+              The build now applies a split-adjusted historical share series, but holdings are still carried between
+              confirmed treasury disclosures.
             </p>
           </div>
 

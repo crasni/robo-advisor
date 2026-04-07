@@ -1,10 +1,12 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
+import { alignSharesWithSplitAdjustedPrices } from "./share-adjustments.mjs";
 
 const ROOT = process.cwd();
 const HOLDINGS_PATH = path.join(ROOT, "data/raw/mstr-holdings-history.json");
 const PROFILE_PATH = path.join(ROOT, "data/raw/mstr-company-profile.json");
+const SHARES_HISTORY_PATH = path.join(ROOT, "data/raw/mstr-shares-history.json");
 const OUTPUT_PATH = path.join(ROOT, "data/processed/mstr-mnav.json");
 
 const STOCK_SOURCE = "https://api.nasdaq.com/api/quote/MSTR/historical";
@@ -14,6 +16,17 @@ const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
+}
+
+async function readOptionalJson(filePath) {
+  try {
+    return await readJson(filePath);
+  } catch (error) {
+    if (error && typeof error === "object" && "code" in error && error.code === "ENOENT") {
+      return null;
+    }
+    throw error;
+  }
 }
 
 async function fetchStockSeries() {
@@ -119,6 +132,78 @@ function latestHoldingsForDate(holdingsTimeline, date) {
   return current?.btcHoldings ?? null;
 }
 
+function validateOrderedTimeline(items, name, valueKey) {
+  if (!Array.isArray(items) || items.length === 0) {
+    throw new Error(`${name} must be a non-empty array.`);
+  }
+
+  let previousDate = null;
+
+  for (const item of items) {
+    if (!item || typeof item !== "object") {
+      throw new Error(`${name} contains an invalid entry.`);
+    }
+
+    if (typeof item.date !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(item.date)) {
+      throw new Error(`${name} contains an invalid date: ${JSON.stringify(item)}`);
+    }
+
+    if (typeof item[valueKey] !== "number" || !Number.isFinite(item[valueKey]) || item[valueKey] <= 0) {
+      throw new Error(`${name} contains an invalid ${valueKey} value on ${item.date}.`);
+    }
+
+    if (previousDate && item.date <= previousDate) {
+      throw new Error(`${name} must be strictly ascending by date. Problem around ${item.date}.`);
+    }
+
+    previousDate = item.date;
+  }
+}
+
+function prepareSharesTimeline(profile, sharesTimeline) {
+  if (sharesTimeline) {
+    validateOrderedTimeline(sharesTimeline, "Share-count timeline", "sharesOutstanding");
+    const normalizedSharesTimeline = alignSharesWithSplitAdjustedPrices(sharesTimeline);
+
+    if (normalizedSharesTimeline[0].date <= BTC_SERIES_START) {
+      return normalizedSharesTimeline;
+    }
+
+    return [
+      {
+        date: BTC_SERIES_START,
+        sharesOutstanding: normalizedSharesTimeline[0].sharesOutstanding,
+        source: `Synthetic backfill using earliest SEC-derived share count from ${normalizedSharesTimeline[0].date}`,
+      },
+      ...normalizedSharesTimeline,
+    ];
+  }
+
+  if (typeof profile.sharesOutstanding !== "number" || !Number.isFinite(profile.sharesOutstanding) || profile.sharesOutstanding <= 0) {
+    throw new Error("Company profile is missing a valid fallback sharesOutstanding value.");
+  }
+
+  return [
+    {
+      date: BTC_SERIES_START,
+      sharesOutstanding: profile.sharesOutstanding,
+      source: "Synthetic fallback derived from mstr-company-profile.json",
+    },
+  ];
+}
+
+function latestSharesForDate(sharesTimeline, date) {
+  let current = sharesTimeline[0];
+  for (const item of sharesTimeline) {
+    if (item.date <= date) {
+      current = item;
+      continue;
+    }
+    break;
+  }
+  return current?.sharesOutstanding ?? null;
+}
+
 function getMissingDates(start, end) {
   const startTime = new Date(`${start}T00:00:00Z`).getTime();
   const endTime = new Date(`${end}T00:00:00Z`).getTime();
@@ -173,21 +258,22 @@ function analyzeOutputCoverage(series) {
   return gaps;
 }
 
-function buildSeries({ stockRows, btcSeries, profile, holdingsTimeline }) {
+function buildSeries({ stockRows, btcSeries, profile, holdingsTimeline, sharesTimeline }) {
   return stockRows
     .filter((row) => row.date && row.close)
     .map((row) => {
       const date = row.date;
       const btcPrice = btcSeries.get(date);
       const btcHoldings = latestHoldingsForDate(holdingsTimeline, date);
+      const sharesOutstanding = latestSharesForDate(sharesTimeline, date);
 
-      if (!btcPrice || !btcHoldings) {
+      if (!btcPrice || !btcHoldings || !sharesOutstanding) {
         return null;
       }
 
       const stockPrice = Number(row.close.toFixed(2));
       const normalizedBtcPrice = Number(btcPrice.toFixed(2));
-      const marketCap = stockPrice * profile.sharesOutstanding;
+      const marketCap = stockPrice * sharesOutstanding;
       const btcNav = normalizedBtcPrice * btcHoldings;
       const mnav = marketCap / btcNav;
 
@@ -196,7 +282,7 @@ function buildSeries({ stockRows, btcSeries, profile, holdingsTimeline }) {
         ticker: profile.ticker,
         companyName: profile.companyName,
         stockPrice,
-        sharesOutstanding: profile.sharesOutstanding,
+        sharesOutstanding,
         marketCap: Number(marketCap.toFixed(2)),
         btcPrice: normalizedBtcPrice,
         btcHoldings,
@@ -208,14 +294,17 @@ function buildSeries({ stockRows, btcSeries, profile, holdingsTimeline }) {
 }
 
 async function main() {
-  const [holdingsTimeline, profile, stockRows, btcSeries] = await Promise.all([
+  const [holdingsTimeline, profile, sharesHistoryInput, stockRows, btcSeries] = await Promise.all([
     readJson(HOLDINGS_PATH),
     readJson(PROFILE_PATH),
+    readOptionalJson(SHARES_HISTORY_PATH),
     fetchStockSeries(),
     fetchBtcSeries(),
   ]);
 
-  const output = buildSeries({ stockRows, btcSeries, profile, holdingsTimeline });
+  validateOrderedTimeline(holdingsTimeline, "Holdings timeline", "btcHoldings");
+  const sharesTimeline = prepareSharesTimeline(profile, sharesHistoryInput);
+  const output = buildSeries({ stockRows, btcSeries, profile, holdingsTimeline, sharesTimeline });
   const coverageGaps = analyzeOutputCoverage(output);
   const unexpectedGaps = coverageGaps.filter((gap) => gap.kind === "unexpected");
 
@@ -223,6 +312,7 @@ async function main() {
   await writeFile(OUTPUT_PATH, `${JSON.stringify(output, null, 2)}\n`, "utf8");
 
   console.log(`Wrote ${output.length} records to ${path.relative(ROOT, OUTPUT_PATH)}`);
+  console.log(`Using ${sharesTimeline.length} dated share-count entr${sharesTimeline.length === 1 ? "y" : "ies"}.`);
   if (coverageGaps.length > 0) {
     console.log(`Detected ${coverageGaps.length} non-trading calendar gap(s) in the stock-session series.`);
     console.log(`Latest gap: ${coverageGaps.at(-1)?.note}`);

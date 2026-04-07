@@ -10,7 +10,11 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "data:build": "node scripts/build-dataset.mjs"
+    "data:holdings": "node scripts/fetch-holdings-history.mjs",
+    "data:shares": "node scripts/fetch-shares-history.mjs",
+    "data:build": "node scripts/build-dataset.mjs",
+    "data:validate": "node scripts/validate-data.mjs",
+    "data:refresh": "npm run data:holdings && npm run data:shares && npm run data:build && npm run data:validate"
   },
   "dependencies": {
     "next": "^15.5.14",
