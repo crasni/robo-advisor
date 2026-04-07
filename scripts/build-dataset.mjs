@@ -10,7 +10,8 @@ const SHARES_HISTORY_PATH = path.join(ROOT, "data/raw/mstr-shares-history.json")
 const OUTPUT_PATH = path.join(ROOT, "data/processed/mstr-mnav.json");
 
 const STOCK_SOURCE = "https://api.nasdaq.com/api/quote/MSTR/historical";
-const BTC_SOURCE = "https://api.binance.com/api/v3/klines";
+const BINANCE_BTC_SOURCE = "https://api.binance.com/api/v3/klines";
+const COINBASE_BTC_SOURCE = "https://api.exchange.coinbase.com/products/BTC-USD/candles";
 const BTC_SERIES_START = "2020-08-11";
 const ONE_DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -79,14 +80,14 @@ function normalizeNasdaqDate(value) {
   return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
 }
 
-async function fetchBtcSeries() {
+async function fetchBtcSeriesFromBinance() {
   const startTime = new Date(`${BTC_SERIES_START}T00:00:00Z`).getTime();
   const endTime = Date.now();
   const prices = new Map();
   let cursor = startTime;
 
   while (cursor < endTime) {
-    const url = new URL(BTC_SOURCE);
+    const url = new URL(BINANCE_BTC_SOURCE);
     url.searchParams.set("symbol", "BTCUSDT");
     url.searchParams.set("interval", "1d");
     url.searchParams.set("limit", "1000");
@@ -118,6 +119,64 @@ async function fetchBtcSeries() {
   }
 
   return prices;
+}
+
+async function fetchBtcSeriesFromCoinbase() {
+  const startTime = new Date(`${BTC_SERIES_START}T00:00:00Z`).getTime();
+  const endTime = Date.now();
+  const prices = new Map();
+  const maxCandlesPerRequest = 300;
+  let cursor = startTime;
+
+  while (cursor < endTime) {
+    const chunkEnd = Math.min(cursor + maxCandlesPerRequest * ONE_DAY_MS, endTime);
+    const url = new URL(COINBASE_BTC_SOURCE);
+    url.searchParams.set("granularity", "86400");
+    url.searchParams.set("start", new Date(cursor).toISOString());
+    url.searchParams.set("end", new Date(chunkEnd).toISOString());
+
+    const response = await fetch(url, {
+      headers: {
+        accept: "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Request failed for ${url}: ${response.status} ${response.statusText}`);
+    }
+
+    const rows = await response.json();
+    if (!Array.isArray(rows)) {
+      throw new Error(`Unexpected Coinbase candle payload for ${url}`);
+    }
+
+    for (const row of rows) {
+      const timestamp = row?.[0];
+      const close = row?.[4];
+
+      if (!Number.isFinite(timestamp) || !Number.isFinite(close)) {
+        continue;
+      }
+
+      const date = new Date(timestamp * 1000).toISOString().slice(0, 10);
+      prices.set(date, close);
+    }
+
+    cursor = chunkEnd;
+  }
+
+  return prices;
+}
+
+async function fetchBtcSeries() {
+  try {
+    return await fetchBtcSeriesFromBinance();
+  } catch (error) {
+    console.warn(
+      `[btc] Binance fetch failed: ${error instanceof Error ? error.message : String(error)}. Falling back to Coinbase Exchange candles.`,
+    );
+    return fetchBtcSeriesFromCoinbase();
+  }
 }
 
 function latestHoldingsForDate(holdingsTimeline, date) {
