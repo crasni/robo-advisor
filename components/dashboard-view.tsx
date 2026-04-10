@@ -11,6 +11,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { buildSummaryMetrics } from "@/lib/ai-summary";
 import type { IndicatorKey, MnavRecord, RangeOption, TreasuryEvent } from "@/lib/types";
 import {
   formatCompactNumber,
@@ -38,6 +39,12 @@ type IndicatorDefinition = {
 type ChartPoint = MnavRecord & {
   normalized: Record<IndicatorKey, number>;
 };
+
+type SummaryState =
+  | { status: "idle" }
+  | { status: "loading" }
+  | { status: "success"; summary: string; generatedAt: string; range: RangeOption["value"] }
+  | { status: "error"; message: string };
 
 const DEFAULT_INDICATORS: IndicatorKey[] = ["mnav", "btcPrice", "stockPrice"];
 
@@ -143,6 +150,7 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
   const [selectedIndicators, setSelectedIndicators] = useState<IndicatorKey[]>(DEFAULT_INDICATORS);
   const [isIndicatorMenuOpen, setIsIndicatorMenuOpen] = useState(false);
   const [showTooltipDetails, setShowTooltipDetails] = useState(true);
+  const [summaryState, setSummaryState] = useState<SummaryState>({ status: "idle" });
 
   const filtered = useMemo(() => {
     const selected = ranges.find((range) => range.value === activeRange);
@@ -150,6 +158,7 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
   }, [activeRange, data, ranges]);
 
   const chartData = useMemo(() => buildChartSeries(filtered), [filtered]);
+  const summaryMetrics = useMemo(() => buildSummaryMetrics(filtered, activeRange), [activeRange, filtered]);
   const latest = filtered.at(-1) ?? null;
   const first = filtered[0] ?? null;
 
@@ -161,6 +170,63 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
       return [...current, indicator];
     });
   };
+
+  const handleGenerateSummary = async () => {
+    if (!summaryMetrics) {
+      setSummaryState({ status: "error", message: "Summary metrics are unavailable for the current range." });
+      return;
+    }
+
+    setSummaryState({ status: "loading" });
+
+    try {
+      const response = await fetch("/api/summary", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          range: activeRange,
+          series: summaryMetrics,
+        }),
+      });
+
+      const payload = (await response.json()) as
+        | { summary?: string; generatedAt?: string; error?: string }
+        | undefined;
+
+      if (!response.ok || !payload?.summary || !payload.generatedAt) {
+        setSummaryState({
+          status: "error",
+          message: payload?.error || "The summary could not be generated. Try again.",
+        });
+        return;
+      }
+
+      setSummaryState({
+        status: "success",
+        summary: payload.summary,
+        generatedAt: payload.generatedAt,
+        range: activeRange,
+      });
+    } catch {
+      setSummaryState({
+        status: "error",
+        message: "The summary request failed. Check your API configuration and retry.",
+      });
+    }
+  };
+
+  const summaryMeta = useMemo(() => {
+    if (summaryState.status !== "success") return null;
+
+    return new Date(summaryState.generatedAt).toLocaleString("en-US", {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
+  }, [summaryState]);
 
   return (
     <main className="dashboard-shell dashboard-shell-terminal">
@@ -207,7 +273,10 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
                   key={range.value}
                   type="button"
                   data-active={range.value === activeRange}
-                  onClick={() => setActiveRange(range.value)}
+                  onClick={() => {
+                    setActiveRange(range.value);
+                    setSummaryState({ status: "idle" });
+                  }}
                   title={`View ${range.label}`}
                 >
                   {range.label}
@@ -335,7 +404,7 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
           <section className="rail-panel rail-panel-continuous">
             <section className="rail-section rail-section-card">
               <div className="rail-section-head">
-                <h3 className="rail-heading-accent">Watchlist</h3>
+                <h3 className="rail-heading-accent">Indicators</h3>
               </div>
               <div className="watchlist-table">
                 <div className="watchlist-head">
@@ -368,6 +437,49 @@ export function DashboardView({ data, ranges, events }: DashboardViewProps) {
                     <span>{row.value}</span>
                   </article>
                 ))}
+              </div>
+            </section>
+
+            <section className="rail-section rail-section-card">
+              <div className="rail-section-head">
+                <h3 className="rail-heading-accent">AI Summary</h3>
+              </div>
+              <div className="ai-summary-card">
+                <p className="ai-summary-note">
+                  Generate a short reading of the current {activeRange} chart window from compact dashboard metrics.
+                </p>
+                <button
+                  type="button"
+                  className="ai-summary-button"
+                  onClick={handleGenerateSummary}
+                  disabled={summaryState.status === "loading" || !summaryMetrics}
+                >
+                  {summaryState.status === "loading" ? (
+                    <>
+                      <span className="ai-summary-spinner" aria-hidden="true" />
+                      Generating...
+                    </>
+                  ) : (
+                    "Generate AI Summary"
+                  )}
+                </button>
+                {summaryState.status === "success" ? (
+                  <div className="ai-summary-result">
+                    <p className="ai-summary-text">{summaryState.summary}</p>
+                    <p className="ai-summary-meta">
+                      Generated for {summaryState.range}
+                      {summaryMeta ? ` on ${summaryMeta}` : ""}
+                    </p>
+                  </div>
+                ) : null}
+                {summaryState.status === "error" ? (
+                  <div className="ai-summary-error">
+                    <p>{summaryState.message}</p>
+                    <button type="button" className="ai-summary-retry" onClick={handleGenerateSummary}>
+                      Retry
+                    </button>
+                  </div>
+                ) : null}
               </div>
             </section>
 

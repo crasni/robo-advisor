@@ -468,7 +468,7 @@ select {
 
 .dashboard-shell-terminal {
   height: 100svh;
-  padding: 1rem;
+  padding: 0.7rem;
   color: #edf1f7;
   background:
     radial-gradient(circle at top right, rgba(214, 144, 51, 0.12), transparent 18%),
@@ -489,7 +489,7 @@ select {
 }
 
 .dashboard-header-bar {
-  padding: 0.55rem 0.8rem;
+  padding: 0.45rem 0.65rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -545,6 +545,13 @@ select {
   height: 1px;
   margin: 0 auto;
   background: rgba(237, 241, 247, 0.85);
+}
+
+.topbar-menu-button:hover,
+.topbar-menu-button[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(214, 144, 51, 0.55);
+  transform: translateY(-1px);
 }
 
 .indicator-menu-panel {
@@ -636,10 +643,10 @@ select {
 }
 
 .dashboard-workspace {
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(320px, 0.52fr);
-  gap: 0.5rem;
+  gap: 0.4rem;
   min-height: 0;
 }
 
@@ -663,12 +670,12 @@ select {
 .instrument-bar,
 .chart-toolbar,
 .viewer-foot-terminal {
-  padding-inline: 1rem;
+  padding-inline: 0.8rem;
 }
 
 .instrument-bar {
-  padding-top: 1rem;
-  padding-bottom: 0.9rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.7rem;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -706,13 +713,13 @@ select {
 
 .instrument-strip {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.55rem;
   flex-wrap: wrap;
 }
 
 .instrument-strip article {
   min-width: 8rem;
-  padding: 0.75rem 0.85rem;
+  padding: 0.6rem 0.7rem;
   border: 1px solid var(--border-soft);
   background: var(--surface-faint);
   border-radius: 10px;
@@ -734,8 +741,8 @@ select {
 }
 
 .chart-toolbar {
-  padding-top: 0.7rem;
-  padding-bottom: 0.7rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -803,6 +810,8 @@ select {
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
+  padding-top: 0.65rem;
+  padding-bottom: 0.75rem;
 }
 
 .chart-meta {
@@ -812,22 +821,17 @@ select {
 }
 
 .dashboard-side-rail {
-  display: grid;
-  gap: 1rem;
+  display: block;
+  height: 100%;
   min-height: 0;
 }
 
 .dashboard-side-rail-terminal {
-  grid-template-rows: 1fr;
+  max-height: 100%;
   min-height: 0;
-  overflow: hidden;
-}
-
-.rail-panel {
-  overflow: hidden;
   height: 100%;
-  min-height: 0;
-  border-radius: 14px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .watchlist-table,
@@ -835,17 +839,19 @@ select {
   display: block;
 }
 
-.rail-panel-continuous {
+.rail-panel {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  height: 100%;
+  gap: 0.55rem;
+  height: auto;
+  min-height: 100%;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 16%),
     var(--surface-strong);
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding: 0.75rem;
+  overflow: visible;
+  padding: 0.55rem;
+  border-radius: 14px;
+  background-clip: padding-box;
 }
 
 .rail-section {
@@ -857,7 +863,7 @@ select {
 }
 
 .rail-section-head {
-  padding: 1rem 1rem 0.8rem;
+  padding: 0.8rem 0.85rem 0.65rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -887,21 +893,116 @@ select {
   font-family: "SFMono-Regular", "JetBrains Mono", Consolas, "Liberation Mono", monospace;
 }
 
+.ai-summary-card {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0 0.85rem 0.85rem;
+}
+
+.ai-summary-note,
+.ai-summary-text,
+.ai-summary-meta,
+.ai-summary-error p {
+  margin: 0;
+}
+
+.ai-summary-note,
+.ai-summary-meta,
+.ai-summary-error p {
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.ai-summary-button,
+.ai-summary-retry {
+  width: 100%;
+  min-height: 2.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(135deg, rgba(255, 154, 60, 0.18), rgba(106, 208, 255, 0.08));
+  color: var(--text-main);
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.ai-summary-button:hover,
+.ai-summary-retry:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.ai-summary-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
+.ai-summary-spinner {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  border-top-color: rgba(255, 255, 255, 0.92);
+  animation: ai-summary-spin 0.85s linear infinite;
+}
+
+.ai-summary-result,
+.ai-summary-error {
+  padding: 0.8rem 0.9rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  background: rgba(255, 255, 255, 0.03);
+  overflow-wrap: anywhere;
+}
+
+.ai-summary-text {
+  color: var(--text-main);
+  line-height: 1.72;
+}
+
+.ai-summary-meta {
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+}
+
+.ai-summary-error {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.ai-summary-retry {
+  min-height: 2.5rem;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+@keyframes ai-summary-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .watchlist-head,
 .watchlist-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: center;
-  padding: 0.9rem 1rem;
+  padding: 0.72rem 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   line-height: 1.25;
   transition: background-color 180ms ease;
 }
 
 .watchlist-head {
-  padding-top: 0.7rem;
-  padding-bottom: 0.65rem;
+  padding-top: 0.55rem;
+  padding-bottom: 0.5rem;
 }
 
 .watchlist-row strong,
@@ -958,7 +1059,7 @@ select {
 }
 
 .rail-note-row {
-  padding: 0.9rem 1rem;
+  padding: 0.72rem 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   transition: background-color 180ms ease;
 }
@@ -1035,7 +1136,7 @@ select {
   }
 
   .dashboard-side-rail {
-    grid-template-columns: 1fr;
+    display: block;
   }
 }
 
@@ -1091,6 +1192,21 @@ select {
   .viewer-panel-terminal,
   .dashboard-side-rail {
     min-height: auto;
+  }
+
+  .dashboard-side-rail {
+    height: auto;
+  }
+
+  .dashboard-side-rail-terminal {
+    max-height: none;
+    height: auto;
+    overflow: visible;
+  }
+
+  .rail-panel {
+    height: auto;
+    overflow: visible;
   }
 
   .instrument-strip,

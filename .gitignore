@@ -1,9 +1,14 @@
 .next
 node_modules
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 *.log
 tsconfig.tsbuildinfo
 .codex
 .codex-local/
 docs/roadmap.md
+docs/report.md
 scripts/fetch-mstr.py

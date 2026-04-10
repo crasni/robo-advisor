@@ -117,9 +117,25 @@ This repo is configured for **GitHub Actions + Vercel**:
 
 For a deployment checklist, see [docs/deployment.md](docs/deployment.md).
 
+## AI Summary
+
+The dashboard includes an on-demand `Generate AI Summary` action in the right-side panel.
+
+Configuration:
+
+- set `OPENROUTER_API_KEY` to enable server-side summary generation
+- optionally set `OPENROUTER_MODEL` to override the default model (`openai/gpt-oss-120b:free`)
+- optionally set `OPENROUTER_SITE_URL` so OpenRouter receives your deployment URL in request headers
+
+Behavior:
+
+- the summary is generated from compact metrics for the currently selected chart range
+- the route tries `openai/gpt-oss-120b:free` first, then falls back to other free OpenRouter routes if needed
+- if `OPENROUTER_API_KEY` is missing, the UI shows a retryable error and the API returns `503`
+- generated text is labeled as AI-generated commentary, not investment advice
+
 ## Limitations
 
 - the app still uses basic share-count snapshots rather than a full daily diluted share series
 - holdings are carried forward between confirmed disclosure dates
 - the dataset is keyed to trading sessions, not every calendar day
-- AI-generated commentary is intentionally out of scope in this version
